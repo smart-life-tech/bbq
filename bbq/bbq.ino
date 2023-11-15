@@ -3,7 +3,7 @@
 #include <Preferences.h>
 #include "html.h"
 //#include "MAX31865.h"
-#include "max6675.h"
+#include "max6675.h"// install the library i added in this repo
 #include <SPI.h>
 
 #include <WiFiClientSecure.h>
