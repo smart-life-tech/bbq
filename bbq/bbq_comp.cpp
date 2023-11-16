@@ -4,10 +4,6 @@ void init_liquid_level()
   pinMode(LIQUID_LEVEL_PIN, INPUT);
 }
 
-int get_liquid_level_value()
-{
-  return digitalRead(LIQUID_LEVEL_PIN);
-}
 
 // void init_pt100()
 // {
@@ -27,10 +23,10 @@ int get_liquid_level_value()
 
 // }
 
-String getQueryParams(String header,String key,String endKey)
+String getQueryParams(String header, String key, String endKey)
 {
-    int keyIndex = header.indexOf(key) + key.length();
-    int keyEndIndex = header.indexOf(endKey, keyIndex);
-    String value = header.substring(keyIndex, keyEndIndex);
-    return value;
+  int keyIndex = header.indexOf(key) + key.length();
+  int keyEndIndex = header.indexOf(endKey, keyIndex);
+  String value = header.substring(keyIndex, keyEndIndex);
+  return value;
 }

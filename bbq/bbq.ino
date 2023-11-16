@@ -182,6 +182,14 @@ void setupAP(void)
   // }
 }
 
+int get_liquid_level_value()
+{
+  double temp = pt100.readCelsius();
+  Serial.print("Temperature: ");
+  Serial.println(temp);
+  return temp;
+}
+
 void setup()
 {
 
