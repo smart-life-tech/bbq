@@ -2,8 +2,8 @@
 #include "bbq_comp.h"
 #include <Preferences.h>
 #include "html.h"
-//#include "MAX31865.h"
-#include "max6675.h"// install the library i added in this repo
+// #include "MAX31865.h"
+#include "max6675.h" // install the library i added in this repo
 #include <SPI.h>
 
 #include <WiFiClientSecure.h>
@@ -107,7 +107,7 @@ int testWifi(int timeretries)
   WiFi.mode(WIFI_STA);
   WiFi.disconnect(); // disconnect to scan wifi
   delay(100);
-  //WiFi.begin(ssid, password);
+  // WiFi.begin(ssid, password);
   while (c < timeretries)
   {
     if (WiFi.status() == WL_CONNECTED)
@@ -141,7 +141,7 @@ int testWifi(int timeretries)
         Serial.println("Configuration failed.");
       }
 
-     // WiFi.begin(ssid, password);
+      // WiFi.begin(ssid, password);
 
       while (WiFi.status() != WL_CONNECTED)
       {
@@ -171,7 +171,7 @@ void setupAP(void)
 
   Serial.println("");
   delay(100);
- // WiFi.softAP(ap_ssid, ap_password); // change to AP mode with AP ssid and APpass
+  // WiFi.softAP(ap_ssid, ap_password); // change to AP mode with AP ssid and APpass
   Serial.println("softAP");
   Serial.println("");
   Serial.println(WiFi.softAPIP());
@@ -296,6 +296,8 @@ void loop()
   {
 
     currentValue = pt100.readCelsius() + double(temp_offset);
+    Serial.print("Temperature: ");
+    Serial.println(currentValue);
     // currentValue += 1;
     // if (currentValue > 30)
     // {
@@ -374,7 +376,7 @@ void loop()
         {
           Serial.println("Bottle Full");
           lstate = "Bottle Full";
-          if (sent_liq == false && BOTtoken != "" && CHAT_ID != "" )
+          if (sent_liq == false && BOTtoken != "" && CHAT_ID != "")
           {
             if (bot.sendSimpleMessage(CHAT_ID, "Bottle Full", ""))
             {
